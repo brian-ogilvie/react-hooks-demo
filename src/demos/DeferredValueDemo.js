@@ -1,10 +1,9 @@
-import {useState, useDeferredValue, memo} from 'react';
+import {useState} from 'react';
 import wait from '../utils/wait';
 
 export default function DeferredValueDemo() {
   const [name, setName] = useState('');
   const [query, setQuery] = useState('');
-  const deferredQuery = useDeferredValue(query);
 
   return (
     <>
@@ -30,15 +29,13 @@ export default function DeferredValueDemo() {
           onChange={({target}) => setQuery(target.value)}
         />
       </label>
-      <div style={{opacity: query !== deferredQuery ? 0.5 : 1}}>
-        <SlowComponent query={deferredQuery} />
-      </div>
+        <SlowComponent query={query} />
     </>
   );
 }
 
 // Child Component
-const SlowComponent = memo(({query}) => {
+const SlowComponent = ({query}) => {
   wait(0.5);
   return ( 
     <>
@@ -48,4 +45,4 @@ const SlowComponent = memo(({query}) => {
       )}
     </>
   );
-});
+};
