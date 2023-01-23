@@ -149,6 +149,10 @@ With a little CSS, we can indicate to the user that the UI they're seeing is sta
 </div>
 ```
 
+Check it out in the browser. Way nicer!
+
+So good work! We've used a number of React features to improve the performance of our UI and give our users a better experience.
+
 ## References
 
 For more information on the hooks we discussed, see the new React docs at [https://beta.reactjs.org/](https://beta.reactjs.org/)
