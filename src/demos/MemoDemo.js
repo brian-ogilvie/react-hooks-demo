@@ -1,16 +1,16 @@
-import {useState, memo, useCallback, useMemo} from 'react';
+import {useState} from 'react';
 
 export default function MemoDemo() {
   const [clickCount, setClickCount] = useState(0);
 
-  const coords = useMemo(() => ({
+  const coords = {
     x: 100,
     y: 200,
-  }), []);
+  };
 
-  const onRender = useCallback(() => {
+  const onRender = () => {
     console.count('Child component rendered!!!');
-  }, []);
+  };
 
   return (
     <>
@@ -26,9 +26,9 @@ export default function MemoDemo() {
 }
 
 // Child Component
-const SlowComponent = memo(({onRender, coords}) => {
+const SlowComponent = ({onRender, coords}) => {
   onRender();
   return (
     <p>X: {coords.x}, Y: {coords.y}</p>
   );
-});
+};
