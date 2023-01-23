@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
 import 'milligram';
-import DeferredValueDemo from './DeferredValueDemo';
+import DeferredValueDemo from '../demos/DeferredValueDemo';
 import DemoSlector from './DemoSelector';
-import MemoDemo from './MemoDemo';
+import MemoDemo from '../demos/MemoDemo';
 import Pages from '../Pages';
 
 export default function App() {

@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# React Hooks Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A brief demonstration of React Hooks beyond useState.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+This repo contains a few examples to explore some of the hooks (and other React APIs) for optimizing performance of your React app. We'll cover:
 
-### `npm start`
+- memo
+- useMemo
+- useCallback
+- useDeferredValue
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### How to install this demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Fork and clone this repository.
+2. Install dependencies with `npm install`.
+3. Fire up the app using `npm start`.
+4. Go to `localhost:3000` in your browser to view the output.
 
-### `npm test`
+### Completed vs Starter Code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The `master` branch contains the completed code with all the optimizations we'll discuss. To see the starter code and view its results in the browser, check out the `starter-code` branch:
 
-### `npm run build`
+```
+git checkout starter-code
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Demo 1: Memoization
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+With the `starter-code` branch checked out, open [src/demos/MemoDemo.js](./src/demos/MemoDemo.js)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Demo 2: Deferring a Value
 
-### `npm run eject`
+With the `starter-code` branch checked out, open [src/demos/DeferredValueDemo.js](./src/demos/DeferredValueDemo.js)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## References
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For more information on
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### A thought from Kent C. Dodds on preventing re-renders:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> Let's say that you have to punch yourself in the face every time you blink. Maybe you'd think: "oh gee, I guess I'd better not blink as much!" You know what I say? I say you should stop punching yourself in the face every time you blink! So instead of just reducing how often a bad thing happens (slow renders), maybe you could eliminate the bad thing and feel free to blink (render) as much as your eyes need you to.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In other words, before you reach for any of the tools we've discussed today--which help prevent unecessary re-renders--make sure you've done everything you can to make each render as efficient as possible. Clean up each component first, then worry about optimizing the number of renders. You can read Kent's full article on the subject here: [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render).
